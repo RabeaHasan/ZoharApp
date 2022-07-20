@@ -1,0 +1,74 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+
+</head>  
+<body>  
+<form method="POST" class="post-form" action="/servey">  
+        {% csrf_token %}  
+    <div class="container">  
+<br>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <h3>Enter Details</h3>  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Survey Id:</label>  
+    <div class="col-sm-4">  
+      {{ form.item }}  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Survey Name:</label>  
+    <div class="col-sm-4">  
+      {{ form.item_name }}  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Survey class:</label>  
+    <div class="col-sm-4">  
+      {{ form.item_class }}  
+    </div>  
+  </div>  
+     
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <button type="submit" class="btn btn-primary">Submit</button>  
+    </div>  
+  </div>  
+    </div>  
+</form>  
+</body>  
+</html>  
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Zohar</title>
+</head>
+<body style="background-color: white ;direction:ltr ;font-size:large">
+    <h1><b>"Zohar" system - a local application for listing inventory</b></h1>
+    <hr>
+    <div style="font-size: 20px; padding-top: 20px;">
+        <a href=“#survery”>survery</a><br><br>
+        <a href=“#survery1”>survery1</a><br><br>
+        <a href=“#status”>status</a><br><br>
+        <a href=“#Manu_factures”>Manu factures</a><br><br>
+        <a href=“#Manu_Models”>Manu Models</a><br><br>
+        <a href=“#Main-Items”>Main-Items</a><br><br>
+        <a href=“#Main-Sites”>Main-Sites</a><br><br>
+    </div>
+
+
+
+
+
+
+
+</body>
+</html> -->
