@@ -33,6 +33,7 @@
     {% for Survey in Surveys %}  
     <tr>  
         <td>{{ Survey.barcode }}</td>  
+        <td>{{ Survey.ID }}</td>  
         <td>{{ Survey.item }}</td>  
         <td>{{ Survey.item_name }}</td>  
         <td>{{ Survey.item_class }}</td>  
@@ -49,10 +50,11 @@
         <td>{{ Survey.checked_by }}</td>  
         <td>{{ Survey.checked_date }}</td>  
         <td>{{ Survey.remarks }}</td>  
+        <td>Actions</td> 
         <td>  
             <!-- add id to the table structure in db -->
-            <a href="edit/{{ Survey.barcode }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
-            <a href="delete/{{ Survey.barcode }}">Delete</a>  
+            <a href="edit/{{ Survey.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="delete/{{ Survey.id }}">Delete</a>  
         </td>  
     </tr>  
     {% endfor %}  

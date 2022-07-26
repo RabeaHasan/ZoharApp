@@ -1,47 +1,134 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <title>Index</title>  
-   
-</head>  
-<body>  
-<form method="POST" class="post-form" action="update/{{Survey.barcode}}">  
-        {% csrf_token %}  
-    <div class="container">  
-<br>  
-    <div class="form-group row">  
-    <label class="col-sm-1 col-form-label"></label>  
-    <div class="col-sm-4">  
-    <h3>Update Details</h3>  
-    </div>  
-  </div>  
-    <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Survey Id:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="item" id="item" required maxlength="20" value="{{ Survey.item }}"/>  
-    </div>  
-  </div>  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Survey Name:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="item_name" id="item_name" required maxlength="100" value="{{ Survey.item_name }}" />  
-    </div>  
-  </div>  
-    <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Survey item_class:</label>  
-    <div class="col-sm-4">  
-        <input type="text" name="item_class" id="item_class" required maxlength="254" value="{{ Survey.item_class }}" />  
-    </div>  
-  </div>  
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="form-group row">  
-    <label class="col-sm-1 col-form-label"></label>  
-    <div class="col-sm-4">  
-    <button type="submit" class="btn btn-success">Update</button>  
-    </div>  
-  </div>  
-    </div>  
-</form>  
-</body>  
-</html>  
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+
+</head>
+
+<body>
+  <form method="POST" class="post-form" action="../update/{{Survey.id}}">
+    {% csrf_token %}
+    <div class="container">
+      <br>
+      <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+          <h3>Update Details {{ failed }}</h3>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Survey barcode:</label>
+        <div class="col-sm-4">
+          <input type="text" name="barcode" id="barcode" required maxlength="56" value="{{ Survey.barcode }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Survey Id:</label>
+        <div class="col-sm-4">
+          <input type="text" name="item" id="item" required maxlength="20" value="{{ Survey.item }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Survey Name:</label>
+        <div class="col-sm-4">
+          <input type="text" name="item_name" id="item_name" required maxlength="100" value="{{ Survey.item_name }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Survey item_class:</label>
+        <div class="col-sm-4">
+          <input type="text" name="item_class" id="item_class" required maxlength="254"
+            value="{{ Survey.item_class }}" />
+        </div>
+      </div>
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Survey item_status:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="item_status" id="item_status" required maxlength="254" value="{{ Survey.item_status }}" />  
+        </div>  
+      </div> 
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Survey manufacturer_code:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="manufacturer_code" id="manufacturer_code" required maxlength="254" value="{{ Survey.manufacturer_code }}" />  
+        </div>  
+      </div> 
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Survey m_model_code:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="m_model_code" id="m_model_code" required maxlength="254" value="{{ Survey.m_model_code }}" />  
+        </div>  
+      </div> 
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Survey m_serial:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="m_serial" id="m_serial" required maxlength="254" value="{{ Survey.m_serial }}" />  
+        </div>  
+      </div>
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Survey piba_name:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="piba_name" id="piba_name" required maxlength="254" value="{{ Survey.piba_name }}" />  
+        </div>  
+      </div>
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Survey main_item_name:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="main_item_name" id="main_item_name" required maxlength="254" value="{{ Survey.main_item_name }}" />  
+        </div>  
+      </div>
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Survey main_item_code:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="main_item_code" id="main_item_code" required maxlength="254" value="{{ Survey.main_item_code }}" />  
+        </div>  
+      </div>
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Survey site_code:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="site_code" id="site_code" required maxlength="254" value="{{ Survey.site_code }}" />  
+        </div>  
+      </div>
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Survey sub_site_name:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="sub_site_name" id="sub_site_name" required maxlength="254" value="{{ Survey.sub_site_name }}" />  
+        </div>  
+      </div>
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Survey location:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="location" id="location" required maxlength="254" value="{{ Survey.location }}" />  
+        </div>  
+      </div>
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Survey checked_by:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="checked_by" id="checked_by" required maxlength="254" value="{{ Survey.checked_by }}" />  
+        </div>  
+      </div>
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Survey checked_date:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="checked_date" id="checked_date" required maxlength="254" value="{{ Survey.checked_date }}" />  
+        </div>  
+      </div>
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Survey remarks:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="remarks" id="remarks" required maxlength="254" value="{{ Survey.remarks }}" />  
+        </div>  
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-4">
+          <button type="submit" class="btn btn-success">Update</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+
+</html>

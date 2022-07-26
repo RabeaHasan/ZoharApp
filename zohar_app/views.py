@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect 
 from django.http import HttpResponse
 from django.template import loader
+from numpy import true_divide
 
 from zohar_app.forms import SurveyForm  
 from zohar_app.models import Survey 
@@ -27,17 +28,36 @@ def servey(request):
 def show(request):  
     Surveys = Survey.objects.all()  
     return render(request,"show.html",{'Surveys':Surveys})  
-def edit(request, barcode):  
-    survey = Survey.objects.get(barcode=barcode)
-    return render(request,'edit.html', {'Survey':survey})  
-def update(request, barcode): 
-    survey = Survey.objects.get(barcode=barcode)  
-    form = SurveyForm(request.POST, instance = survey)  
-    if form.is_valid():  
-        form.save()  
-        return redirect("/show")  
-    return render(request, 'edit.html', {'Survey': survey})  
+def edit(request, id):  
+    survey = Survey.objects.get(id=id)
+    return render(request,'edit.html', {'Survey':survey, 'failed':False})  
+def update(request, id): 
+    survey = Survey.objects.get(id=id)  
+    form = SurveyForm(instance = survey)
+    if request.method == 'POST':
+        form = SurveyForm(request.POST, instance = survey)  
+        if form.is_valid():  
+            form.save()  
+            return redirect("../show") 
+    return render(request, 'edit.html', {'Survey': survey , 'failed':True})  
+
 def destroy(request, id):  
     survey = Survey.objects.get(id=id)  
     survey.delete()  
-    return redirect("/show")  
+    return redirect("../show")  
+
+    
+#  blogs = Blog.objects.get(id=pk)
+#     form = BlogForm(instance=blogs)
+
+#     if request.method == 'POST':
+#         form = BlogForm(request.POST, instance=blogs)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('/search')
+
+#     context = {
+#         'blogs': blogs,
+#         'form': form,
+#     }
+#     return render(request,'update.html',context)

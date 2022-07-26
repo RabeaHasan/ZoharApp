@@ -181,7 +181,8 @@ class Statuses(models.Model):
 
 
 class Survey(models.Model):
-    barcode = models.CharField(db_column='BarCode', primary_key=True, max_length=12)  # Field name made lowercase.
+    barcode = models.CharField(db_column='BarCode',  max_length=12)  # Field name made lowercase.
+    id = models.IntegerField(db_column='id',primary_key=True)# Field name made lowercase.
     item = models.IntegerField(db_column='Item')  # Field name made lowercase.
     item_name = models.CharField(db_column='Item-name', max_length=20)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     item_class = models.CharField(db_column='Item-Class', max_length=10)  # Field name made lowercase. Field renamed to remove unsuitable characters.
