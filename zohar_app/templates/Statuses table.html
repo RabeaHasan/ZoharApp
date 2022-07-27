@@ -13,22 +13,12 @@
         <th>statuses Item-Status</th>  
     </tr>  
     </thead>  
-    {% for status in statuses %}  
     <tbody>  
-    <tr>  
-        <td>{{status.Item-Status-code }}</td>  
-        <td>{{status.Item-Status }}</td>  
-        <td>  
-            <!-- add id to the table structure in db -->
-            <a href="edit/{{ Item-Status-code }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
-            <a href="delete/{{ Item-Status-code }}">Delete</a>  
-        </td>  
-    </tr>  
+    {% for status in statuses %}
+    <tr>
+    <td>{{ status.itemstatuscode }}</td>  
+    <td>{{ status.itemstatus }}</td>   
+    </tr>
     {% endfor %}  
     </tbody>  
 </table>  
-<br>  
-<br>  
-<center><a href="/emp" class="btn btn-primary">Add New Record</a></center>  
-</body>  
-</html>  

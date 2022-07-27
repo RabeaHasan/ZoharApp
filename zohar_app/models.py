@@ -162,9 +162,9 @@ class MainSites(models.Model):
 
 
 class Manufacturer(models.Model):
-    manufacturer_code = models.IntegerField(db_column='manufacturer-code', primary_key=True)  # Field renamed to remove unsuitable characters.
-    manufacturer_name = models.CharField(db_column='manufacturer-Name', max_length=20)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    m_model_code = models.IntegerField(db_column='M-Model-Code')  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    manufacturer_code = models.IntegerField(db_column='manufacturerCode', primary_key=True)  # Field renamed to remove unsuitable characters.
+    manufacturer_name = models.CharField(db_column='manufacturerName', max_length=20)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    m_model_code = models.IntegerField(db_column='MModelCode')  # Field name made lowercase. Field renamed to remove unsuitable characters.
 
     class Meta:
         managed = False
@@ -172,8 +172,8 @@ class Manufacturer(models.Model):
 
 
 class Statuses(models.Model):
-    item_status_code = models.IntegerField(db_column='Item-Status-code', primary_key=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-    item_status = models.CharField(db_column='Item-Status', max_length=20)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    itemstatuscode = models.IntegerField(db_column='ItemStatusCode', primary_key=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    itemstatus = models.CharField(db_column='ItemStatus', max_length=20)  # Field name made lowercase. Field renamed to remove unsuitable characters.
 
     class Meta:
         managed = False

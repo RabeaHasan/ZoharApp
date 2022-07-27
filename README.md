@@ -1,2 +1,0 @@
-# ZoharApp
-Zohar APP 

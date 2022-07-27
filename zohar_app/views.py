@@ -5,6 +5,8 @@ from numpy import true_divide
 
 from zohar_app.forms import SurveyForm  
 from zohar_app.models import Survey 
+from zohar_app.models import Statuses
+from zohar_app.models import Manufacturer
 
 def index(request):
     template = loader.get_template('page2.html')
@@ -28,6 +30,12 @@ def servey(request):
 def show(request):  
     Surveys = Survey.objects.all()  
     return render(request,"show.html",{'Surveys':Surveys})  
+def statuses(request):
+    statuses = Statuses.objects.all()  
+    return render(request,"Statuses table.html",{'statuses':statuses, 'failed':False})  
+def manufacturers(request):
+    manufacturers = Manufacturer.objects.all()  
+    return render(request,"manufacturer.html",{'manufacturers':manufacturers, 'failed':False})  
 def edit(request, id):  
     survey = Survey.objects.get(id=id)
     return render(request,'edit.html', {'Survey':survey, 'failed':False})  
