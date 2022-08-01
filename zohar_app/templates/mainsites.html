@@ -2,22 +2,24 @@
 <html lang="en">  
 <head>  
     <meta charset="UTF-8">  
-    <title>statuses</title>  
+    <title>mainsites</title>  
     
 </head>  
 <body>  
 <table class="table table-striped table-bordered table-sm">  
     <thead class="thead-dark">  
     <tr>  
-        <th>status Item-Status-code</th>  
-        <th>status Item-Status</th>  
+        <th>mainsite SiteCode</th>  
+        <th>mainsite SiteName</th>  
+        <th>mainsite SubSiteName</th>  
     </tr>  
     </thead>  
     <tbody>  
-    {% for status in statuses %}
+    {% for mainsite in mainsites %}
     <tr>
-    <td>{{ status.itemstatuscode }}</td>  
-    <td>{{ status.itemstatus }}</td>   
+    <td>{{ mainsite.SiteCode }}</td>  
+    <td>{{ mainsite.SiteName }}</td>   
+    <td>{{ mainsite.SubSiteName }}</td>  
     </tr>
     {% endfor %}  
     </tbody>  

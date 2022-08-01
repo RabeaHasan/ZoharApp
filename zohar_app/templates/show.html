@@ -13,7 +13,7 @@
         <th>Survey ID</th>  
         <th>Survey Name</th>  
         <th>Survey Class</th>  
-        <!--<th>Survey item_status</th>  
+        <th>Survey item_status</th>  
         <th>Survey manufacturer_code</th>  
         <th>Survey m_model_code</th>  
         <th>Survey m_serial</th>  
@@ -26,11 +26,11 @@
         <th>Survey checked_by</th>  
         <th>Survey checked_date</th>  
         <th>Survey remarks</th>  
-        <th>Actions</th>  -->
+        <th>Actions</th>  
     </tr>  
     </thead>  
     <tbody>  
-    {% for Survey in Surveys %}  
+    {% for Survey in surveys %}  
     <tr>  
         <td>{{ Survey.barcode }}</td>  
         <td>{{ Survey.ID }}</td>  
@@ -52,8 +52,8 @@
         <td>{{ Survey.remarks }}</td>  
         <td>Actions</td> 
             <!-- add id to the table structure in db -->
-            <a href="edit/{{ Survey.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
-            <a href="delete/{{ Survey.id }}">Delete</a>  
+            <a href="edit/{{ Survey.ID }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="delete/{{ Survey.ID }}">Delete</a>  
         </td>  
     </tr>  
     {% endfor %}  

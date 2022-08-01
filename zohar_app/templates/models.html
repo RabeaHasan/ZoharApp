@@ -2,22 +2,22 @@
 <html lang="en">  
 <head>  
     <meta charset="UTF-8">  
-    <title>statuses</title>  
+    <title>models</title>  
     
 </head>  
 <body>  
 <table class="table table-striped table-bordered table-sm">  
     <thead class="thead-dark">  
     <tr>  
-        <th>status Item-Status-code</th>  
-        <th>status Item-Status</th>  
+        <th>model MModelsCode</th>  
+        <th>model Mmodelsname</th>    
     </tr>  
     </thead>  
     <tbody>  
-    {% for status in statuses %}
+    {% for model in models %}
     <tr>
-    <td>{{ status.itemstatuscode }}</td>  
-    <td>{{ status.itemstatus }}</td>   
+    <td>{{ model.MModelsCode }}</td>  
+    <td>{{ model.Mmodelsname }}</td>    
     </tr>
     {% endfor %}  
     </tbody>  

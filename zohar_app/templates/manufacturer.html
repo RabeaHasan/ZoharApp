@@ -9,17 +9,17 @@
 <table class="table table-striped table-bordered table-sm">  
     <thead class="thead-dark">  
     <tr>  
-        <th>manfacturers manufacturerCode</th>  
-        <th>manfacturers manufacturerName</th>  
-        <th>manfacturers MModelCode</th>  
+        <th>manfacturer manufacturerCode</th>  
+        <th>manfacturer manufacturerName</th>  
+        <th>manfacturer MModelCode</th>  
     </tr>  
     </thead>  
     <tbody>  
     {% for manfacturer in manfacturers %}
     <tr>
-    <td>{{ manfacturers.manufacturerCode }}</td>  
-    <td>{{ manfacturers.manufacturerName }}</td>  
-    <td>{{ manfacturers.MModelCode }}</td>
+    <td>{{ manfacturer.manufacturerCode }}</td>  
+    <td>{{ manfacturer.manufacturerName }}</td>  
+    <td>{{ manfacturer.MModelCode }}</td>
     </tr>
     {% endfor %}  
     </tbody>  

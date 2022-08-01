@@ -4,9 +4,12 @@ from django.template import loader
 from numpy import true_divide
 
 from zohar_app.forms import SurveyForm  
-from zohar_app.models import Survey 
-from zohar_app.models import Statuses
-from zohar_app.models import Manufacturer
+from zohar_app.models import survey 
+from zohar_app.models import statuses
+from zohar_app.models import manufacturers
+from zohar_app.models import mainsites
+from zohar_app.models import mainitems
+from zohar_app.models import items
 
 def index(request):
     template = loader.get_template('page2.html')
@@ -15,7 +18,7 @@ def index(request):
  
 
 # Create your views here.  
-def servey(request):  
+def Survey(request):  
     if request.method == "POST":  
         form = SurveyForm(request.POST)  
         if form.is_valid():  
@@ -28,19 +31,28 @@ def servey(request):
         form = SurveyForm()  
     return render(request,'index.html',{'form':form})  
 def show(request):  
-    Surveys = Survey.objects.all()  
-    return render(request,"show.html",{'Surveys':Surveys})  
-def statuses(request):
-    statuses = Statuses.objects.all()  
-    return render(request,"Statuses table.html",{'statuses':statuses, 'failed':False})  
-def manufacturers(request):
-    manufacturers = Manufacturer.objects.all()  
-    return render(request,"manufacturer.html",{'manufacturers':manufacturers, 'failed':False})  
-def edit(request, id):  
-    survey = Survey.objects.get(id=id)
+    surveys = survey.objects.all()
+    return render(request,"show.html",{'surveys':surveys})  
+def show_statuses(request):
+    Statuses = statuses.objects.all()
+    return render(request,"Statuses table.html",{'statuses':Statuses, 'failed':False})  
+def show_manufacturers(request):
+    Manufacturers = manufacturers.objects.all()  
+    return render(request,"manufacturer.html",{'manufacturers':Manufacturers, 'failed':False}) 
+def show_mainsites(request):
+    Mainsites = mainsites.objects.all()  
+    return render(request,"mainsites.html",{'mainsites':Mainsites, 'failed':False}) 
+def show_mainitems(request):  
+    Mainitems = mainitems.objects.all()  
+    return render(request,"mainitems.html",{'mainitems':Mainitems, 'failed':False})  
+def show_items(request):
+    Items = items.objects.all()  
+    return render(request,"items.html",{'items1':Items, 'failed':False}) 
+def edit(request, ID):  
+    survey = Survey.objects.get(ID=ID)
     return render(request,'edit.html', {'Survey':survey, 'failed':False})  
-def update(request, id): 
-    survey = Survey.objects.get(id=id)  
+def update(request, ID): 
+    survey = Survey.objects.get(ID=ID)  
     form = SurveyForm(instance = survey)
     if request.method == 'POST':
         form = SurveyForm(request.POST, instance = survey)  
@@ -49,8 +61,8 @@ def update(request, id):
             return redirect("../show") 
     return render(request, 'edit.html', {'Survey': survey , 'failed':True})  
 
-def destroy(request, id):  
-    survey = Survey.objects.get(id=id)  
+def destroy(request, ID):  
+    survey = Survey.objects.get(ID=ID)  
     survey.delete()  
     return redirect("../show")  
 
