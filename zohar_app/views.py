@@ -1,3 +1,4 @@
+from pyexpat import model
 from django.shortcuts import render, redirect 
 from django.http import HttpResponse
 from django.template import loader
@@ -10,14 +11,15 @@ from zohar_app.models import manufacturers
 from zohar_app.models import mainsites
 from zohar_app.models import mainitems
 from zohar_app.models import items
+from zohar_app.models import guides
 
 def index(request):
     template = loader.get_template('page2.html')
     return HttpResponse(template.render())
-
- 
-
-# Create your views here.  
+    
+# Create your views here.
+def main(request):
+    return render(request,"Main.html")  
 def Survey(request):  
     if request.method == "POST":  
         form = SurveyForm(request.POST)  
@@ -47,23 +49,26 @@ def show_mainitems(request):
     return render(request,"mainitems.html",{'mainitems':Mainitems, 'failed':False})  
 def show_items(request):
     Items = items.objects.all()  
-    return render(request,"items.html",{'items1':Items, 'failed':False}) 
+    return render(request,"items.html",{'items':Items, 'failed':False}) 
+def guides1(request):
+    Modells = guides.objects.all()  
+    return render(request,"models.html",{'modells':Modells, 'failed':False}) 
 def edit(request, ID):  
-    survey = Survey.objects.get(ID=ID)
-    return render(request,'edit.html', {'Survey':survey, 'failed':False})  
+    survey1 = survey.objects.get(ID=ID)
+    return render(request,'edit.html', {'Survey':survey1, 'failed':False})  
 def update(request, ID): 
-    survey = Survey.objects.get(ID=ID)  
-    form = SurveyForm(instance = survey)
+    survey1 = survey.objects.get(ID=ID)  
+    form = SurveyForm(instance = survey1)
     if request.method == 'POST':
-        form = SurveyForm(request.POST, instance = survey)  
+        form = SurveyForm(request.POST, instance = survey1)  
         if form.is_valid():  
             form.save()  
             return redirect("../show") 
-    return render(request, 'edit.html', {'Survey': survey , 'failed':True})  
+    return render(request, 'edit.html', {'Survey': survey1 , 'failed':True})  
 
 def destroy(request, ID):  
-    survey = Survey.objects.get(ID=ID)  
-    survey.delete()  
+    survey1 = survey.objects.get(ID=ID)  
+    survey1.delete()  
     return redirect("../show")  
 
     

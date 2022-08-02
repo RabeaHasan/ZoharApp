@@ -1,6 +1,6 @@
 from django import forms
 from zohar_app.models import  survey
-from zohar_app.models import  statuses
+
 
 
 class SurveyForm(forms.ModelForm):

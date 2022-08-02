@@ -8,6 +8,8 @@ from .models import manufacturers
 from .models import mainsites
 from .models import mainitems
 from .models import items
+from .models import guides
+
 
 admin.site.register(survey)
 admin.site.register(statuses)
@@ -15,3 +17,4 @@ admin.site.register(manufacturers)
 admin.site.register(mainsites)
 admin.site.register(mainitems)
 admin.site.register(items)
+admin.site.register(guides)

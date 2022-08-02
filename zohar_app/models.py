@@ -123,17 +123,24 @@ class DjangoSession(models.Model):
 
 
 class items(models.Model):
-    Items = models.IntegerField(db_column='Item', primary_key=True)  # Field name made lowercase.
+    Items = models.IntegerField(db_column='Items', primary_key=True)  # Field name made lowercase.
     ItemName = models.CharField(db_column='ItemName', max_length=20)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     ItemClass = models.CharField(db_column='ItemClass', max_length=10)  # Field name made lowercase. Field renamed to remove unsuitable characters.
     class Meta:
         managed = False
         db_table = 'items'
 
+class guides(models.Model):
+    MModelCode  = models.IntegerField(db_column='MModelCode', primary_key=True)  # Field name made lowercase.
+    MModelname = models.CharField(db_column='MModelname', max_length=20)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+    class Meta:
+        managed = False
+        db_table = 'guides'
+
  
 class mainitems(models.Model):
    MainItemCode = models.IntegerField(db_column='MainItemCode', primary_key=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-   MainItemName = models.CharField(db_column='MainItemName', max_length=20)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+   MainItemName = models.CharField(db_column='MainItemname', max_length=20)  # Field name made lowercase. Field renamed to remove unsuitable characters.
    class Meta:
         managed = False
         db_table = 'mainitems'
