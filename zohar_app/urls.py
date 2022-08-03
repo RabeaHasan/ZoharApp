@@ -11,7 +11,7 @@ urlpatterns = [
     path('show_mainitems',views.show_mainitems),
     path('show_items',views.show_items),
     path('show1',views.guides1),
-    path('Edit/<int:ID>', views.edit),  
-    path('update/<int:ID>', views.update),  
-    path('delete/<int:ID>', views.destroy),  
+    path('edit/<int:id>', views.edit),  
+    path('update/<int:id>', views.update),  
+    path('delete/<int:id>', views.destroy),  
 ]

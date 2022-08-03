@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form method="POST" class="post-form" action="../update/{{Survey.ID}}">
+  <form method="POST" class="post-form" action="../update/{{Survey.id}}">
     {% csrf_token %}
     <div class="container">
       <br>
@@ -112,7 +112,7 @@
       <div class="form-group row">  
         <label class="col-sm-2 col-form-label">Survey checked_date:</label>  
         <div class="col-sm-4">  
-            <input type="text" name="checked_date" id="checked_date" required maxlength="254" value="{{ Survey.checked_date }}" />  
+            <input type="date" name="checked_date" id="checked_date" required maxlength="254" value="{{ Survey.checked_date }}" />  
         </div>  
       </div>
       <div class="form-group row">  
