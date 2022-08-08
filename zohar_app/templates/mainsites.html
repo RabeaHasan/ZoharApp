@@ -1,13 +1,17 @@
 <!DOCTYPE html>  
 <html lang="en">  
+    <style>
+        table, th, td {
+          border:1px solid black;
+        }
+        </style>
 <head>  
     <meta charset="UTF-8">  
-    <title>mainsites</title>  
-    
+    <title>Main Sites</title>   
 </head>  
-<body>  
-<table class="table table-striped table-bordered table-sm">  
-    <thead class="thead-dark">  
+
+<body> <h2>Mainsites Table</h2>
+    <table style="width:100%">
     <tr>  
         <th>mainsite SiteCode</th>  
         <th>mainsite SiteName</th>  
@@ -17,9 +21,9 @@
     <tbody>  
     {% for mainsite in mainsites %}
     <tr>
-    <td>{{ mainsite.SiteCode }}</td>  
-    <td>{{ mainsite.SiteName }}</td>   
-    <td>{{ mainsite.SubSiteName }}</td>  
+    <td>{{ mainsite.sitecode }}</td>  
+    <td>{{ mainsite.sitename }}</td>   
+    <td>{{ mainsite.subsitename }}</td>  
     </tr>
     {% endfor %}  
     </tbody>  

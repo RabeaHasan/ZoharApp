@@ -1,0 +1,16 @@
+body {
+    background-size: 100%;
+    color: white;
+    font-family: 'Myanmar Text';
+    font-weight: 900;
+    direction: rtl
+}
+
+
+.header{
+    margin: -80px;
+}
+
+.headline{
+    margin: 8px -8px 0px 0px;
+}
