@@ -25,34 +25,40 @@ from zohar_app.models import Items
 from zohar_app.models import Guides
 
 
+# 1::GET
+# The GET method is used to retrieve information from the given server using a given URI. Requests using GET should only retrieve data and should have no other effect on the data.
+
+# 2::POST
+# A POST request is used to send data to the server, for example, customer information, file upload, etc. using HTML forms.
+
 def index(request):
-    template = loader.get_template('page2.html')
+    template = loader.get_template('page2.html')#Load and return a template for the given name.
     return HttpResponse(template.render())
 
 # Create your views here.
 
 
 def main(request):
-    return render(request, "Main.html")
+    return render(request, "Main.html")#render main page
 
 
 def survey(request):
-    if request.method == "POST":
+    if request.method == "POST":#check if the request is POST
         form = SurveyForm(request.POST)
-        if form.is_valid():
+        if form.is_valid():#insure that all fields are valid
             try:
-                form.save()
-                return redirect('/show')
+                form.save()#save to db
+                return redirect('/show')# redirect back to show
             except:
                 pass
-    else:
+    else:#if the form have at least 1 unvalid field return return submetted form
         form = SurveyForm()
     return render(request, 'index.html', {'form': form})
 
 
 def show(request):
-    surveys = Survey.objects.all()
-    return render(request, "show.html", {'surveys': surveys})
+    surveys = Survey.objects.all()#connect to db and get all records
+    return render(request, "show.html", {'surveys': surveys})#render back the show page || return the objects to the page
 
 
 def show_statuses(request):
@@ -91,9 +97,9 @@ def edit(request, id):
 
 
 def update(request, id):
-    survey1 = Survey.objects.get(id=id)
-    form = SurveyForm(instance=survey1)
-    if request.method == 'POST':
+    survey1 = Survey.objects.get(id=id)#connect to db || get object by its id 
+    form = SurveyForm(instance=survey1)#send submeted form to form 
+    if request.method == 'POST':#check if this ment to save (POST)
         form = SurveyForm(request.POST, instance=survey1)
         if form.is_valid():
             form.save()
@@ -102,8 +108,8 @@ def update(request, id):
 
 
 def destroy(request, ID):
-    survey1 = Survey.objects.get(ID=ID)
-    survey1.delete()
+    survey1 = Survey.objects.get(ID=ID)#get the object by id from db instance
+    survey1.delete()#connect to db || delete the record from 
     return redirect("../show")
 
 
@@ -175,19 +181,3 @@ def addFromCSV(request):
 		messages.error(request, "Unable to upload file. "+repr(e))
     
 	return HttpResponseRedirect(redirect_to='show')
-
-    
-#  blogs = Blog.objects.get(id=pk)
-#     form = BlogForm(instance=blogs)
-
-#     if request.method == 'POST':
-#         form = BlogForm(request.POST, instance=blogs)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('/search')
-
-#     context = {
-#         'blogs': blogs,
-#         'form': form,
-#     }
-#     return render(request,'update.html',context)
