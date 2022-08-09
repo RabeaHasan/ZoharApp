@@ -1,0 +1,39 @@
+{% comment %} templates/base.html {% endcomment %}
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<title>{% block title %}{% endblock %}</title>
+{% load static %}  
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+{% comment %} https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css
+https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css {% endcomment %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+<link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css
+" rel="stylesheet" id="bootstrap-css">
+{% comment %} <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> {% endcomment %}
+{% comment %} <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> {% endcomment %}
+{% comment %} <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script> {% endcomment %}
+{% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script> {% endcomment %}
+ 
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+</head> 
+<body>
+<div class="container">
+ <div class="row">
+    {% block content %}{% endblock %}
+ </div>
+</div>
+<script>
+$(document).ready(function() {
+    $('#bootstrapdatatable').DataTable({     
+      "aLengthMenu": [[3, 5, 10, 25, -1], [3, 5, 10, 25, "All"]],
+        "iDisplayLength": 3
+       } 
+    );
+} );
+</script>
+</body> 
+</html>
